@@ -4,6 +4,7 @@
 
 - Bash
 - VIM
+- VIM Plugin-Manager [vim-plug](https://github.com/junegunn/vim-plug)
 - [Oh-My-Posh for Bash](https://ohmyposh.dev/docs/installation/linux)
 
 ### How to install:

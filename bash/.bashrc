@@ -15,11 +15,19 @@ alias ls='eza'
 export BUNDLE_PATH=~/.gems
 export GEM_HOME=~/.gems
 
-PATH=~/.local/bin:~/.dotnet:~/.local/share/gem/ruby/3.3.0/bin:$PATH
+PATH=~/.local/bin:~/.local/share/gem/ruby/3.3.0/bin:$PATH
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# .Net related configuratios:
+if [[ -d ~/.dotnet ]]; then
+    PATH=~/.dotnet:~/.dotnet/tools:$PATH
+
+    export DOTNET_ROOT=~/.dotnet
+    export DOTNET_MULTILEVEL_LOOKUP=1
+fi
+
+if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
+    source /usr/share/nvm/init-nvm.sh
+fi
 
 if command -v oh-my-posh &>/dev/null; then
     eval "$(oh-my-posh init bash --config https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/slimfat.omp.json)"
