@@ -4,8 +4,6 @@
 
 # If not running interactively, don't do anything
 
-echo "Loading dotfiles repository config"
-
 [[ $- != *i* ]] && return
 
 alias grep='grep --color=auto'
@@ -31,7 +29,6 @@ fi
 
 # .Net
 if [[ -d ~/dotfiles ]]; then
-    echo "Initializing VIM from dotfiles repository"
     export VIMINIT="source $HOME/dotfiles/vim/.vimrc"
 fi
 
