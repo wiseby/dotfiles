@@ -12,12 +12,23 @@ alias ll='eza -la'
 
 export BUNDLE_PATH=~/.gems
 export GEM_HOME=~/.gems
+export EDITOR=vim
 
 PATH=~/.local/bin:~/.local/share/gem/ruby/3.3.0/bin:~/bin:$PATH
 
 # PHP related configurations:
 if [[ -d ~/.phpbrew ]]; then
     . $HOME/.phpbrew/bashrc
+fi
+
+# Bash
+if [[ -f /usr/share/bash-completion/bash-completion ]] && $- == *i*; then
+    . /usr/share/bash-completion/bash_completion
+    complete -cf sudo
+
+    # To make bash-completion to work with sudo commands.
+    # Add the following to sudoers file with visudo:
+    # Defaults env_keep += "BASH_COMPLETION"
 fi
 
 # .Net related configuratios:
