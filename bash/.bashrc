@@ -7,13 +7,18 @@
 [[ $- != *i* ]] && return
 
 alias grep='grep --color=auto'
-alias sudo='sudo '
 alias ls='eza'
+alias ll='eza -la'
 
 export BUNDLE_PATH=~/.gems
 export GEM_HOME=~/.gems
 
 PATH=~/.local/bin:~/.local/share/gem/ruby/3.3.0/bin:~/bin:$PATH
+
+# PHP related configurations:
+if [[ -d ~/.phpbrew ]]; then
+    . $HOME/.phpbrew/bashrc
+fi
 
 # .Net related configuratios:
 if [[ -d ~/.dotnet ]]; then
@@ -29,12 +34,12 @@ fi
 
 # .Net
 if [[ -d ~/dotfiles ]]; then
-    export VIMINIT="source $HOME/dotfiles/vim/.vimrc"
+    export VIMINIT="source $DOT_HOME/vim/.vimrc"
 fi
 
 # Oh-My-Posh
 if command -v oh-my-posh &>/dev/null; then
-    eval "$(oh-my-posh init bash --config https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/slimfat.omp.json)"
+    eval "$(oh-my-posh init bash --config $DOT_HOME/bash/my-slimfat.omp.json)"
 fi
 
 # Oh-My-Bash
