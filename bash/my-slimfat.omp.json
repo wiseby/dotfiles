@@ -83,28 +83,32 @@
           "foreground": "#fafafa",
           "leading_diamond": "\ue0b2",
           "style": "diamond",
-          "type": "text"
+          "type": "text",
+          "min_width": 200
         },
         {
           "background": "#2f2f2f",
           "foreground": "#6CA35E",
           "style": "diamond",
           "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}<#7a7a7a> \ue0b3</>",
-          "type": "node"
+          "type": "node",
+          "min_width": 200
         },
         {
           "background": "#2f2f2f",
           "foreground": "#96E072",
           "style": "diamond",
           "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<#7a7a7a> \ue0b3</>",
-          "type": "python"
+          "type": "python",
+          "min_width": 200
         },
         {
           "background": "#2f2f2f",
           "foreground": "#3891A6",
           "style": "diamond",
           "template": " \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }}<#7a7a7a> \ue0b3</>",
-          "type": "dotnet"
+          "type": "dotnet",
+          "min_width": 200
         },
         {
           "background": "#2f2f2f",
