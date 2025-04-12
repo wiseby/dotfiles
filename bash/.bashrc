@@ -1,17 +1,23 @@
+# ============================
+# Bootstrapping configurations
+# ============================
+
+# Replace .bashrc in your home directory with the followong content:
+#export DOT_HOME=~/dotfiles
 #
-# ~/.bashrc
-#
+#if [[ -d ~/dotfiles ]]; then
+#    source ~/dotfiles/bash/.bashrc
+#fi
+
+echo "Initializing wisebys custom bash session..."
 
 # If not running interactively, don't do anything
-
 [[ $- != *i* ]] && return
 
 alias grep='grep --color=auto'
 alias ls='eza'
 alias ll='eza -la'
 
-export BUNDLE_PATH=~/.gems
-export GEM_HOME=~/.gems
 export EDITOR=vim
 
 PATH=~/.local/bin:~/.local/share/gem/ruby/3.3.0/bin:~/bin:$PATH
@@ -31,6 +37,17 @@ if [[ -f /usr/share/bash-completion/bash-completion ]] && $- == *i*; then
     # Defaults env_keep += "BASH_COMPLETION"
 fi
 
+# VIM:
+if [[ -d ~/dotfiles ]]; then
+    export VIMINIT="source $HOME/dotfiles/vim/.vimrc"
+fi
+
+# Ruby:
+if [[ -d ~/.rbenv ]]; then
+    PATH=~/.rbenv/bin:$PATH
+    eval "$(rbenv init - bash)"
+fi
+
 # .Net related configuratios:
 if [[ -d ~/.dotnet ]]; then
     PATH=~/.dotnet:~/.dotnet/tools:$PATH
@@ -41,11 +58,6 @@ fi
 
 if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
     source /usr/share/nvm/init-nvm.sh
-fi
-
-# .Net
-if [[ -d ~/dotfiles ]]; then
-    export VIMINIT="source $DOT_HOME/vim/.vimrc"
 fi
 
 # Oh-My-Posh
