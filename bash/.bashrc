@@ -54,6 +54,8 @@ if [[ -d ~/.dotnet ]]; then
 
     export DOTNET_ROOT=~/.dotnet
     export DOTNET_MULTILEVEL_LOOKUP=1
+    
+    source ~/dotfiles/bash/utilities.sh
 fi
 
 if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
