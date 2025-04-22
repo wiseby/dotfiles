@@ -42,7 +42,11 @@
           "properties": {
             "folder_icon": "<#B5B2C2>\ue5fe </>",
             "style": "agnoster_short",
-            "max_depth": 3
+            "max_depth": 3,
+            "mapped_locations": {
+              "~/Projects": "==",
+              "~/Documents": "--"
+            }
           },
           "style": "diamond",
           "template": "<#f2f200> \ue5ff </>{{ .Path }} ",
@@ -62,7 +66,7 @@
             "fetch_upstream_icon": true
           },
           "style": "diamond",
-          "template": "<#7a7a7a>\ue0b1 </>{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#E84855> \uf044 {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#2FDA4E> \uf046 {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "template": "<#7a7a7a>\ue0b1 </>{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#E84855> \uf044 {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#2FDA4E> \uf046 {{ .Staging.String }}</>{{ end }}",
           "type": "git"
         },
         {
@@ -84,7 +88,7 @@
           "leading_diamond": "\ue0b2",
           "style": "diamond",
           "type": "text",
-          "min_width": 200
+          "min_width": 100
         },
         {
           "background": "#2f2f2f",
@@ -92,7 +96,7 @@
           "style": "diamond",
           "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}<#7a7a7a> \ue0b3</>",
           "type": "node",
-          "min_width": 200
+          "min_width": 100
         },
         {
           "background": "#2f2f2f",
@@ -100,7 +104,7 @@
           "style": "diamond",
           "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<#7a7a7a> \ue0b3</>",
           "type": "python",
-          "min_width": 200
+          "min_width": 100
         },
         {
           "background": "#2f2f2f",
@@ -108,7 +112,7 @@
           "style": "diamond",
           "template": " \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }}<#7a7a7a> \ue0b3</>",
           "type": "dotnet",
-          "min_width": 200
+          "min_width": 100
         },
         {
           "background": "#2f2f2f",
@@ -119,7 +123,8 @@
           "style": "diamond",
           "template": " {{ .CurrentDate | date .Format }}<#007ACC> \ue641 </>",
           "trailing_diamond": "\u2593\ue0c6",
-          "type": "time"
+          "type": "time",
+          "min_width": 100
         }
       ],
       "type": "prompt"
